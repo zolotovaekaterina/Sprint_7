@@ -1,6 +1,7 @@
-import client.Order;
+import client.OrderService;
 import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
+import io.restassured.response.ValidatableResponse;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -48,11 +49,10 @@ public class CreateOrderTest {
     public void createOrdersWithVariousColorScooter() {
         System.out.println(1);
 
-        Order order = new Order(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
+        OrderService orderService = new OrderService(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
         System.out.println(1);
+        ValidatableResponse validatableResponse = orderService.createOrder(orderService);
+        validatableResponse.statusCode(201).extract().path("track");
 
-        int orderTrack = order.createOrder();
-
-        assertNotNull(orderTrack);
 }
 }
