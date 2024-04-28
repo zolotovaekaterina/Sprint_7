@@ -5,24 +5,17 @@ import io.restassured.response.ValidatableResponse;
 
 import static io.restassured.RestAssured.given;
 
-public class OrderListService extends OrderList{
-    public OrderListService(Integer courierId, String nearestStation, Integer limit, Integer page) {
-        super(courierId, nearestStation, limit, page);
-    }
+public class OrderListService{
+
     @Step("Формирование данных для запроса списка заказов без параметров")
     public static OrderListService getDataForListOfOrdersWithoutParameters() {
-        return new OrderListService(
-                null,
-                null,
-                null,
-                null
-        );
+        return new OrderListService();
     }
-    private final String GET_ORDER_LIST = "/api/v1/orders";
 
     @Step("Получение списка заказов")
-    public ValidatableResponse getListOfOrders(OrderList orderList) {
+    public ValidatableResponse getListOfOrders(OrderListService orderList) {
 
+        String GET_ORDER_LIST = "/api/v1/orders";
         return given()
                 .log()
                 .all()

@@ -49,7 +49,7 @@ public class CreateOrderTest {
     public void createOrdersWithVariousColorScooter() {
         System.out.println(1);
 
-        OrderService orderService = new OrderService(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
+        OrderService orderService = new OrderService();
         System.out.println(1);
         ValidatableResponse validatableResponse = orderService.createOrder(orderService);
         validatableResponse.statusCode(201).extract().path("track");

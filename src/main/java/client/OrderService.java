@@ -5,13 +5,9 @@ import io.restassured.response.ValidatableResponse;
 
 import static io.restassured.RestAssured.given;
 
-public class OrderService extends Order{
+public class OrderService{
     private static final String CREATE_ORDER_ENDPOINT = "/api/v1/orders";
 
-
-    public OrderService(String firstName, String lastName, String address, String metroStation, String phone, String rentTime, String deliveryDate, String comment, String[] color) {
-        super(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, comment, color);
-    }
 
 
     @Step("Создание заказа")

@@ -113,7 +113,7 @@ public class LoginCourierTest {
     }
 
     @After
-    public void CleanUp() {
+    public void cleanUp() {
         if (id != null) {
             client.deleteCourierById(id);
         }

@@ -106,7 +106,7 @@ public class CreateCourierTest {
     }
 
     @After
-    public void CleanUp() {
+    public void cleanUp() {
         if (id != null) {
             client.deleteCourierById(id);
         }
